@@ -93,7 +93,7 @@ function Install-Bootloader
     param(
         [string] $ChocoExePath
     )
-        $expression = "$ChocoExePath install -y -f --acceptlicense --no-progress --stoponfirstfailure wvd-boot-loader --pre"
+        $expression = "$ChocoExePath install -y -f --acceptlicense --no-progress --stoponfirstfailure --ignore-checksum wvd-boot-loader --pre"
         Invoke-ExpressionImpl -Expression $expression
 }
 
@@ -104,7 +104,7 @@ function Install-Agent
         [string] $ChocoExePath,
         [string] $HostPoolRegistrationkey
     )
-        $expression = "$ChocoExePath install -y -f --acceptlicense --no-progress --stoponfirstfailure wvd-agent --params=""'/REGISTRATIONTOKEN:$($HostPoolRegistrationkey)'"" --pre"
+        $expression = "$ChocoExePath install -y -f --acceptlicense --no-progress --stoponfirstfailure --ignore-checksum wvd-agent --params=""'/REGISTRATIONTOKEN:$($HostPoolRegistrationkey)'"" --pre"
         Invoke-ExpressionImpl -Expression $expression
 }
 
